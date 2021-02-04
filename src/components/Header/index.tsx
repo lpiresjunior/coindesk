@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Headerr } from './styles';
+import { ComponentHeader } from './styles';
 
 const Header: React.FC = () => {
   return (
-    <Headerr>
+    <ComponentHeader>
       <Link to="/">Bitcoin</Link>
-      <Link to="/">BRL 130.000,00</Link>
+      <Link to="/sobre">BRL 130.000,00</Link>
       {/* <Link to="/sobre">Sobre</Link> */}
-    </Headerr>
+    </ComponentHeader>
   );
 };
 

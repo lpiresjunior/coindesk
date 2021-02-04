@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
-export const Headerr = styled.header`
+export const ComponentHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
   /* margin-bottom: 40px; */
+
+  @media (max-width: 300px) {
+    flex-direction: column;
+    align-items: center;
+  }
 
   a {
     display: flex;

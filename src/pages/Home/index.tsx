@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 import { Line } from 'react-chartjs-2';
-import { Container, Title, Card } from './styles';
+import { Container, Title } from './styles';
 import Header from '../../components/Header';
+import CoinCard from '../../components/CoinCard';
 
 const Home: React.FC = () => {
   const [chartData, setChartData] = useState({});
@@ -45,18 +46,7 @@ const Home: React.FC = () => {
       <Header />
       <Container>
         <Title>Principais moedas</Title>
-        <Card>
-          <p>USD</p>
-          <p>$ 23.000,00</p>
-        </Card>
-        <Card>
-          <p>USD</p>
-          <p>$ 23.000,00</p>
-        </Card>
-        <Card>
-          <p>USD</p>
-          <p>$ 23.000,00</p>
-        </Card>
+        <CoinCard />
       </Container>
       <Container>
         <Title>Últimos 7 dias em USD</Title>

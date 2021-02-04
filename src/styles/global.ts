@@ -10,7 +10,7 @@ export default createGlobalStyle`
 }
 
 body{
-  background: #18191A;
+  background: #F2F2FA;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -21,6 +21,7 @@ body, input, button {
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px 20px;
+  background-color: #18191A;
 }
 button {
   cursor: pointer;
