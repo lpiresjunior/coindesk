@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { Title } from './styles';
+
 const Home: React.FC = () => {
-  return <h1>Home</h1>;
+  return <Title>Valor do Bitcoin nas principais moedas</Title>;
 };
 
 export default Home;
