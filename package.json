@@ -1,5 +1,5 @@
 {
-  "name": "coindesk-api",
+  "name": "coindesk",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
