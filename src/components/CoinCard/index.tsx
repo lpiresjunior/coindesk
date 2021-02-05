@@ -28,7 +28,7 @@ const CoinCard: React.FC = () => {
   return (
     <>
       {coins.map(coin => (
-        <Card>
+        <Card key={coin.rate_float}>
           <>
             <p>{coin.code}</p>
             <p>
