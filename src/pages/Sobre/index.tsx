@@ -1,7 +1,13 @@
 import React from 'react';
 
+import Header from '../../components/Header';
+
 const Sobre: React.FC = () => {
-  return <h1>Sobre</h1>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default Sobre;

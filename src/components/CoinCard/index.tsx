@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { decode } from 'html-entities';
 import api from '../../services/api';
 
-import { Card } from './styles';
+import { Card, Error } from './styles';
 
 interface Coin {
   code: string;
@@ -11,8 +11,9 @@ interface Coin {
 }
 
 const CoinCard: React.FC = () => {
+  const [apiError, setApiError] = useState(false);
   const [coins, setCoins] = useState<Coin[]>([]);
-  const handleFormatValue = (value: number) => {
+  const handleRateFormat = (value: number) => {
     return value.toLocaleString('pt-br', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
@@ -20,23 +21,34 @@ const CoinCard: React.FC = () => {
   };
 
   useEffect(() => {
-    api.get('currentprice.json').then(response => {
-      setCoins(Object.values(response.data.bpi));
-    });
+    api
+      .get('currentprice.json')
+      .then(response => {
+        setCoins(Object.values(response.data.bpi));
+      })
+      .catch(() => {
+        setApiError(true);
+      });
   }, []);
 
   return (
     <>
-      {coins.map(coin => (
-        <Card key={coin.rate_float}>
-          <>
-            <p>{coin.code}</p>
-            <p>
-              {`${decode(coin.symbol)} ${handleFormatValue(coin.rate_float)}`}
-            </p>
-          </>
-        </Card>
-      ))}
+      {!apiError ? (
+        coins.map(coin => (
+          <Card key={coin.rate_float}>
+            <>
+              <p>{coin.code}</p>
+              <p>
+                {`${decode(coin.symbol)} ${handleRateFormat(coin.rate_float)}`}
+              </p>
+            </>
+          </Card>
+        ))
+      ) : (
+        <Error>
+          Ocorreu um erro ao carregar este campo, tente novamente mais tarde.
+        </Error>
+      )}
     </>
   );
 };

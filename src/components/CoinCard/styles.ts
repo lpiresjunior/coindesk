@@ -27,3 +27,7 @@ export const Card = styled.div`
     width: 80%;
   }
 `;
+
+export const Error = styled.p`
+  color: #ed4337;
+`;
